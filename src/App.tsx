@@ -13,7 +13,7 @@ function App() {
       <GridItem area="header">
         <Header />
       </GridItem>
-      <GridItem area="main">
+      <GridItem area="main" display="flex" justifyContent="center">
         <Main />
       </GridItem>
     </Grid>
