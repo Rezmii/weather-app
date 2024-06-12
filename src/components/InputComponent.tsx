@@ -20,7 +20,7 @@ const InputComponent = ({ onHandleClick }: Props) => {
   };
   return (
     <>
-      <HStack alignItems="center">
+      <HStack alignItems="center" spacing={3}>
         <Input
           ref={countryRef}
           padding="6"

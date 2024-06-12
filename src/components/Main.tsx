@@ -1,8 +1,9 @@
-import { Box, Text, VStack } from "@chakra-ui/react";
+import { Text } from "@chakra-ui/react";
 import fetchWeather from "../services/fetchWeather";
 import { useEffect, useState } from "react";
+import MainHeader from "./MainHeader";
 
-interface WeatherData {
+export interface WeatherData {
   location: WeatherLocation;
   current: WeatherCurrent;
 }
@@ -48,21 +49,16 @@ const Main = ({ cityName }: Props) => {
   }, [cityName]);
 
   if (error) {
-    return <Text>Error fetching weather data: {error}</Text>;
+    return (
+      <Text size="2xl" color="white">
+        Error fetching weather data: {error}
+      </Text>
+    );
   }
 
   return (
     <>
-      {weatherData && (
-        <VStack alignItems="center">
-          <Text color="white" fontSize="5xl">
-            {weatherData.location.name}, {weatherData.location.country}
-          </Text>
-          <Text color="gray.500" fontSize="3xl">
-            {weatherData.location.localtime} | {weatherData.current.temp_c} °C
-          </Text>
-        </VStack>
-      )}
+      <MainHeader weatherData={weatherData} />
     </>
   );
 };

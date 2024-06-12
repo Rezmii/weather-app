@@ -1,4 +1,4 @@
-import { HStack, Text } from "@chakra-ui/react";
+import { Box, HStack, Text } from "@chakra-ui/react";
 import InputComponent from "./InputComponent";
 
 interface Props {
@@ -11,7 +11,10 @@ const Header = ({ onHandleClick }: Props) => {
       <Text fontSize="5xl" fontWeight={"bold"} color="white">
         Weather App
       </Text>
-      <InputComponent onHandleClick={(name) => onHandleClick(name)} />
+      <Box width="50%">
+        <InputComponent onHandleClick={(name) => onHandleClick(name)} />
+      </Box>
+
       <Text>Change units component</Text>
     </HStack>
   );
