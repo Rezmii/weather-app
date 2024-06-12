@@ -4,7 +4,7 @@ import InputComponent from "./InputComponent";
 const Header = () => {
   return (
     <HStack padding="16" justifyContent="space-between" alignItems="center">
-      <Text fontSize="5xl" fontWeight={"bold"}>
+      <Text fontSize="5xl" fontWeight={"bold"} color="gray.500">
         Weather App
       </Text>
       <InputComponent />
