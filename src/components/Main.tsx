@@ -1,7 +1,8 @@
-import { Text } from "@chakra-ui/react";
+import { HStack, Text, VStack } from "@chakra-ui/react";
 import fetchWeather from "../services/fetchWeather";
 import { useEffect, useState } from "react";
 import MainHeader from "./MainHeader";
+import MainPrimaryInfo from "./MainPrimaryInfo";
 
 export interface WeatherData {
   location: WeatherLocation;
@@ -18,6 +19,15 @@ interface WeatherCurrent {
   last_updated: string;
   temp_c: number;
   temp_f: number;
+  feelslike_c: number;
+  feelslike_f: number;
+  is_day: number;
+  condition: Condition;
+}
+
+interface Condition {
+  text: string;
+  icon: string;
 }
 
 interface Props {
@@ -58,7 +68,15 @@ const Main = ({ cityName }: Props) => {
 
   return (
     <>
-      <MainHeader weatherData={weatherData} />
+      {weatherData && (
+        <VStack spacing="3em">
+          <MainHeader weatherData={weatherData} />
+          <HStack justifyContent="space-between" width="70vw">
+            <MainPrimaryInfo weatherData={weatherData} />
+            <Text>123</Text>
+          </HStack>
+        </VStack>
+      )}
     </>
   );
 };
