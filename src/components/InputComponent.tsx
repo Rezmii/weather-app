@@ -1,11 +1,15 @@
 import { Button, HStack, Input } from "@chakra-ui/react";
 import { useRef } from "react";
 
-const InputComponent = () => {
+interface Props {
+  onHandleClick: (name: string) => void;
+}
+
+const InputComponent = ({ onHandleClick }: Props) => {
   const countryRef = useRef<HTMLInputElement>(null);
   const handleClick = () => {
     if (countryRef.current !== null) {
-      console.log(countryRef.current.value);
+      onHandleClick(countryRef.current.value);
       countryRef.current.value = "";
     }
   };

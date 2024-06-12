@@ -1,8 +1,10 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import Header from "./components/Header";
 import Main from "./components/Main";
+import { useState } from "react";
 
 function App() {
+  const [cityName, setCityName] = useState<string>("");
   return (
     <Grid
       templateAreas={`"header" "main"`}
@@ -11,10 +13,10 @@ function App() {
       bg={"blue.200"}
     >
       <GridItem area="header">
-        <Header />
+        <Header onHandleClick={(name) => setCityName(name)} />
       </GridItem>
       <GridItem area="main" display="flex" justifyContent="center">
-        <Main />
+        <Main cityName={cityName} />
       </GridItem>
     </Grid>
   );

@@ -1,10 +1,10 @@
 import apiClient from "./api-client";
 
-const fetchWeather = () => {
+const fetchWeather = (cityName: string) => {
   return apiClient
     .get("/current.json", {
       params: {
-        q: "Londondasds",
+        q: cityName,
       },
     })
     .then((res) => res.data)
