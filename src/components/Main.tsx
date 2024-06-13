@@ -3,6 +3,7 @@ import fetchWeather from "../services/fetchWeather";
 import { useEffect, useState } from "react";
 import MainHeader from "./MainHeader";
 import MainPrimaryInfo from "./MainPrimaryInfo";
+import GridInfo from "./GridInfo";
 
 export interface WeatherData {
   location: WeatherLocation;
@@ -21,7 +22,6 @@ interface WeatherCurrent {
   temp_f: number;
   feelslike_c: number;
   feelslike_f: number;
-  is_day: number;
   condition: Condition;
 }
 
@@ -73,7 +73,7 @@ const Main = ({ cityName }: Props) => {
           <MainHeader weatherData={weatherData} />
           <HStack justifyContent="space-between" width="70vw">
             <MainPrimaryInfo weatherData={weatherData} />
-            <Text>123</Text>
+            <GridInfo weatherData={weatherData} />
           </HStack>
         </VStack>
       )}
