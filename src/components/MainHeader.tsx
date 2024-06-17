@@ -13,15 +13,17 @@ const MainHeader = ({ weatherData }: Props) => {
 
   return (
     <>
-      <VStack alignItems="center">
-        <Text color="white" fontSize="5xl">
-          {weatherData.location.name}, {weatherData.location.country}
-        </Text>
-        <Text color="gray.500" fontSize="3xl">
-          {splitLocalDate(weatherData.location.localtime).date} |
-          {splitLocalDate(weatherData.location.localtime).time}
-        </Text>
-      </VStack>
+      {weatherData && (
+        <VStack alignItems="center">
+          <Text color="white" fontSize="5xl">
+            {weatherData.location.name}, {weatherData.location.country}
+          </Text>
+          <Text color="white" fontSize="3xl">
+            {splitLocalDate(weatherData.location.localtime).date} |
+            {splitLocalDate(weatherData.location.localtime).time}
+          </Text>
+        </VStack>
+      )}
     </>
   );
 };

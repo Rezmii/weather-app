@@ -23,6 +23,10 @@ interface WeatherCurrent {
   feelslike_c: number;
   feelslike_f: number;
   condition: Condition;
+  wind_dir: string;
+  humidity: number;
+  wind_kph: number;
+  uv: number;
 }
 
 interface Condition {
@@ -71,7 +75,11 @@ const Main = ({ cityName }: Props) => {
       {weatherData && (
         <VStack spacing="3em">
           <MainHeader weatherData={weatherData} />
-          <HStack justifyContent="space-between" width="70vw">
+          <HStack
+            justifyContent="space-between"
+            width="70vw"
+            alignItems="flex-start"
+          >
             <MainPrimaryInfo weatherData={weatherData} />
             <GridInfo weatherData={weatherData} />
           </HStack>

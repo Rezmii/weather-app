@@ -1,24 +1,28 @@
-import { HStack, Image, Text, VStack } from "@chakra-ui/react";
-import { WeatherData } from "./Main";
+import { HStack, Text, VStack } from "@chakra-ui/react";
+import { IconType } from "react-icons";
 
 interface Props {
-  weatherData: WeatherData | null;
+  textInfo: string;
+  info: string | number | undefined;
+  IconComponent: IconType;
+  iconSize?: number;
 }
 
-const MainSecondaryInfo = ({ weatherData }: Props) => {
+const MainSecondaryInfo = ({
+  textInfo,
+  info,
+  IconComponent,
+  iconSize = 60,
+}: Props) => {
   return (
-    <HStack gap="-5">
-      <Image
-        boxSize="6em"
-        src={weatherData?.current.condition.icon}
-        paddingTop="3"
-      />
-      <VStack>
+    <HStack>
+      <IconComponent size={iconSize} color="white" />
+      <VStack alignItems="flex-start">
         <Text color="white" fontSize="4xl">
-          {weatherData?.current.temp_c}°C
+          {textInfo}
         </Text>
-        <Text color="white" fontSize="3xl">
-          {weatherData?.current.condition.text}
+        <Text color="white" fontSize="2xl">
+          {info}
         </Text>
       </VStack>
     </HStack>
