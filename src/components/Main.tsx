@@ -1,13 +1,14 @@
 import { HStack, Text, VStack } from "@chakra-ui/react";
-import fetchWeather from "../services/fetchWeather";
 import { useEffect, useState } from "react";
 import MainHeader from "./MainHeader";
 import MainPrimaryInfo from "./MainPrimaryInfo";
 import GridInfo from "./GridInfo";
+import fetchWeather from "../services/fetchWeather";
 
 export interface WeatherData {
   location: WeatherLocation;
   current: WeatherCurrent;
+  forecast: WeatcherForecast;
 }
 
 interface WeatherLocation {
@@ -35,6 +36,18 @@ interface Condition {
   code: number;
 }
 
+interface WeatcherForecast {
+  forecastday: Array<ForecastDay>;
+}
+
+interface ForecastDay {
+  day: DailyForecast;
+}
+
+interface DailyForecast {
+  daily_chance_of_rain: string;
+}
+
 interface Props {
   cityName: string;
 }
@@ -48,7 +61,7 @@ const Main = ({ cityName }: Props) => {
       if (cityName) {
         try {
           const data = await fetchWeather(cityName);
-          console.log("Weather Data:", data);
+          console.log("Data:", data);
           setWeatherData(data);
         } catch (error) {
           console.error("Error fetching weather:", error);

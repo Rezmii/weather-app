@@ -40,7 +40,7 @@ const GridInfo = ({ weatherData }: Props) => {
       />
       <MainSecondaryInfo
         textInfo="Chance of rain"
-        info="empty"
+        info={`${weatherData?.forecast.forecastday[0].day.daily_chance_of_rain}%`}
         IconComponent={IoRainyOutline}
       />
       <MainSecondaryInfo

@@ -2,7 +2,7 @@ import apiClient from "./api-client";
 
 const fetchWeather = (cityName: string) => {
   return apiClient
-    .get("/current.json", {
+    .get("/forecast.json", {
       params: {
         q: cityName,
       },
