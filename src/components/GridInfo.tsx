@@ -1,5 +1,4 @@
 import { SimpleGrid } from "@chakra-ui/react";
-import { WeatherData } from "./Main";
 import MainSecondaryInfo from "./MainSecondaryInfo";
 import { LiaTemperatureHighSolid } from "react-icons/lia";
 import { PiCompassRoseLight } from "react-icons/pi";
@@ -7,6 +6,7 @@ import { WiHumidity } from "react-icons/wi";
 import { FiWind } from "react-icons/fi";
 import { IoRainyOutline } from "react-icons/io5";
 import { PiSunLight } from "react-icons/pi";
+import { WeatherData } from "../App";
 
 interface Props {
   weatherData: WeatherData | null;

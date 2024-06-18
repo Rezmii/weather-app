@@ -1,8 +1,8 @@
 import { HStack, Text, VStack } from "@chakra-ui/react";
-import { WeatherData } from "./Main";
 import iconMap from "../services/weatherIconMaps";
 import React from "react";
 import { IconType } from "react-icons";
+import { WeatherData } from "../App";
 
 interface Props {
   weatherData: WeatherData | null;
