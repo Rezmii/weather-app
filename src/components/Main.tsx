@@ -27,6 +27,7 @@ interface WeatherCurrent {
   wind_dir: string;
   humidity: number;
   wind_kph: number;
+  wind_mph: number;
   uv: number;
 }
 
@@ -50,9 +51,10 @@ interface DailyForecast {
 
 interface Props {
   cityName: string;
+  americanUnits: boolean;
 }
 
-const Main = ({ cityName }: Props) => {
+const Main = ({ cityName, americanUnits }: Props) => {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [error, setError] = useState<string>("");
 
@@ -94,8 +96,11 @@ const Main = ({ cityName }: Props) => {
             width="70vw"
             alignItems="flex-start"
           >
-            <MainPrimaryInfo weatherData={weatherData} />
-            <GridInfo weatherData={weatherData} />
+            <MainPrimaryInfo
+              weatherData={weatherData}
+              americanUnits={americanUnits}
+            />
+            <GridInfo weatherData={weatherData} americanUnits={americanUnits} />
           </HStack>
         </VStack>
       )}

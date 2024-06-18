@@ -1,11 +1,14 @@
 import { Box, HStack, Text } from "@chakra-ui/react";
 import InputComponent from "./InputComponent";
+import ChangeUnits from "./ChangeUnits";
 
 interface Props {
   onHandleClick: (name: string) => void;
+  onClickCel: () => void;
+  onClickFar: () => void;
 }
 
-const Header = ({ onHandleClick }: Props) => {
+const Header = ({ onHandleClick, onClickCel, onClickFar }: Props) => {
   return (
     <HStack padding="16" justifyContent="space-between" alignItems="center">
       <Text fontSize="5xl" fontWeight={"bold"} color="white">
@@ -15,7 +18,7 @@ const Header = ({ onHandleClick }: Props) => {
         <InputComponent onHandleClick={(name) => onHandleClick(name)} />
       </Box>
 
-      <Text>Change units component</Text>
+      <ChangeUnits onClickCel={onClickCel} onClickFar={onClickFar} />
     </HStack>
   );
 };

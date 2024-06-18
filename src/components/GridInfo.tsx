@@ -10,15 +10,20 @@ import { PiSunLight } from "react-icons/pi";
 
 interface Props {
   weatherData: WeatherData | null;
+  americanUnits: boolean;
 }
 
-const GridInfo = ({ weatherData }: Props) => {
+const GridInfo = ({ weatherData, americanUnits }: Props) => {
   const spreadWeatherData = { ...weatherData?.current };
   return (
     <SimpleGrid columns={2} spacing={10}>
       <MainSecondaryInfo
         textInfo="Feels like"
-        info={spreadWeatherData.feelslike_c}
+        info={
+          americanUnits
+            ? `${spreadWeatherData?.feelslike_f}°F`
+            : `${spreadWeatherData?.feelslike_c}°C`
+        }
         IconComponent={LiaTemperatureHighSolid}
         iconSize={65}
       />
@@ -29,13 +34,17 @@ const GridInfo = ({ weatherData }: Props) => {
       />
       <MainSecondaryInfo
         textInfo="Humidity"
-        info={spreadWeatherData.humidity}
+        info={`${spreadWeatherData.humidity}%`}
         IconComponent={WiHumidity}
         iconSize={68}
       />
       <MainSecondaryInfo
         textInfo="Wind speed"
-        info={spreadWeatherData.wind_kph}
+        info={
+          americanUnits
+            ? `${spreadWeatherData?.wind_mph}mph`
+            : `${spreadWeatherData?.wind_kph}km/h`
+        }
         IconComponent={FiWind}
       />
       <MainSecondaryInfo

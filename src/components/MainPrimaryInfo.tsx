@@ -6,9 +6,10 @@ import { IconType } from "react-icons";
 
 interface Props {
   weatherData: WeatherData | null;
+  americanUnits: boolean;
 }
 
-const MainPrimaryInfo = ({ weatherData }: Props) => {
+const MainPrimaryInfo = ({ weatherData, americanUnits }: Props) => {
   const weatherIcon =
     weatherData?.current.condition.code !== undefined
       ? iconMap[weatherData?.current.condition.code]
@@ -25,7 +26,9 @@ const MainPrimaryInfo = ({ weatherData }: Props) => {
       })}
       <VStack marginLeft={10}>
         <Text color="white" fontSize="7xl">
-          {weatherData?.current.temp_c}°C
+          {americanUnits
+            ? `${weatherData?.current.temp_f}°F`
+            : `${weatherData?.current.temp_c}°C`}
         </Text>
         <Text color="white" fontSize="4xl">
           {weatherData?.current.condition.text}
