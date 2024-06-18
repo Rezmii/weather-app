@@ -1,5 +1,4 @@
 import { IconType } from "react-icons";
-import { FaCloud } from "react-icons/fa";
 import { CiCloudSun } from "react-icons/ci";
 import { BsFillCloudsFill } from "react-icons/bs";
 import { WiDaySunnyOvercast } from "react-icons/wi";
@@ -17,9 +16,10 @@ import { IoRainy } from "react-icons/io5";
 import { WiNightAltSnow } from "react-icons/wi";
 import { WiDayThunderstorm } from "react-icons/wi";
 import { WiNightSnowThunderstorm } from "react-icons/wi";
+import { IoIosSunny } from "react-icons/io";
 
 const iconMap: { [key: number]: IconType } = {
-  1000: FaCloud,
+  1000: IoIosSunny,
   1003: CiCloudSun,
   1006: BsFillCloudsFill,
   1009: WiDaySunnyOvercast,
