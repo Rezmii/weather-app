@@ -43,10 +43,18 @@ interface WeatcherForecast {
 
 interface ForecastDay {
   day: DailyForecast;
+  hour: Array<ForecastHour>;
 }
 
 interface DailyForecast {
   daily_chance_of_rain: string;
+}
+
+interface ForecastHour {
+  time: string;
+  temp_c: number;
+  temp_f: number;
+  chance_of_rain: number;
 }
 
 function App() {
@@ -101,7 +109,12 @@ function App() {
             />
           </GridItem>
         </Grid>
-        {cityName && <HourlyForecast />}
+        {cityName && (
+          <HourlyForecast
+            weatherData={weatherData}
+            americanUnits={americanUnits}
+          />
+        )}
       </Box>
     </>
   );
