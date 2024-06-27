@@ -1,4 +1,4 @@
-import { Flex, Heading } from "@chakra-ui/react";
+import { Flex, Heading, useBreakpointValue } from "@chakra-ui/react";
 import HourWeatherSection from "./HourWeatherSection";
 import { WeatherData } from "../App";
 
@@ -8,9 +8,17 @@ interface Props {
 }
 
 const HourlyForecast = ({ weatherData, americanUnits }: Props) => {
+  const marginHeading = useBreakpointValue({ xl: "4em", "2xl": "" });
+
   return (
     <Flex alignItems="center" flexDirection="column" gap="2em">
-      <Heading as="h2" size="2xl" color="white" fontWeight="normal">
+      <Heading
+        as="h2"
+        size="2xl"
+        color="white"
+        fontWeight="normal"
+        marginTop={marginHeading}
+      >
         Hourly Forecast
       </Heading>
       <HourWeatherSection
